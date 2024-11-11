@@ -27,43 +27,43 @@
       "size": "LARGE",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 0,
+      "arc": 10,
       "angle": 0,
-      "locations": [178, 0]
+      "locations": [170, 0]
     },
     {
       "id": "WS0002",
       "size": "SMALL",
-      "type": "MISSILE",
+      "type": "BALLISTIC",
       "mount": "TURRET",
-      "arc": 15,
+      "arc": 180,
       "angle": 60,
       "locations": [121, 21]
     },
     {
       "id": "WS0003",
       "size": "SMALL",
-      "type": "MISSILE",
+      "type": "BALLISTIC",
       "mount": "TURRET",
-      "arc": 15,
+      "arc": 180,
       "angle": 60,
       "locations": [104, 22]
     },
     {
       "id": "WS0004",
       "size": "SMALL",
-      "type": "MISSILE",
+      "type": "BALLISTIC",
       "mount": "TURRET",
-      "arc": 15,
+      "arc": 180,
       "angle": 60,
       "locations": [87, 23]
     },
     {
       "id": "WS0005",
       "size": "SMALL",
-      "type": "MISSILE",
+      "type": "BALLISTIC",
       "mount": "TURRET",
-      "arc": 15,
+      "arc": 180,
       "angle": 60,
       "locations": [70.5, 24.5]
     },
@@ -120,34 +120,34 @@
   "engineSlots": [
     {
       "location": [-128.5, -10.5],
-      "length": 30,
-      "width": 10,
+      "length": 52,
+      "width": 18,
       "angle": 180,
-      "contrailSize": 30,
+      "contrailSize": 18,
       "style": "HIGH_TECH"
     },
     {
       "location": [-127.5, -3],
-      "length": 30,
-      "width": 10,
+      "length": 52,
+      "width": 18,
       "angle": 180,
-      "contrailSize": 30,
+      "contrailSize": 18,
       "style": "HIGH_TECH"
     },
     {
       "location": [-101, 16.5],
-      "length": 30,
-      "width": 10,
+      "length": 52,
+      "width": 18,
       "angle": 180,
-      "contrailSize": 30,
+      "contrailSize": 18,
       "style": "HIGH_TECH"
     },
     {
       "location": [-100.5, 24],
-      "length": 30,
-      "width": 10,
+      "length": 52,
+      "width": 18,
       "angle": 180,
-      "contrailSize": 30,
+      "contrailSize": 18,
       "style": "HIGH_TECH"
     }
   ],

@@ -49,14 +49,14 @@ arc_mura,SHIP,"""Myrrh"" - The Mura-Pattern Piercer acts as ARC's unconventional
 arc_netzach_spinal,WEAPON,"""Those madmen weaponized a hypershunt into a coronal mass ejection?""",- Unnamed Captain,
 arc_kether_spinal,WEAPON,"""Those madmen weaponized a hypershunt into a coronal mass ejection?""",- Unnamed Captain
 arc_mml,WEAPON,"""Reporting hits all across the broadside, Captain. Decks 12 through 23 just got perforated. The PD grids can't keep up!""",- Unnamed Gunnery Officer
-arc_blackbox,WEAPON,"""The Blackbox Anti-Air Missile? An elegant solution for maintaining space superiority. I hear the multi-lock variable charge warheads make dealing with both fighters and missiles quite effective.""","- Lamed-978, Curator Core"
-arc_stygan,WEAPON,"""The Stygan Pattern Meson Emitter? A venerable 'beam shotgun' with catastrophic effects on any enemy hull that violates a certain threshold of the Cube Mass Law""","- Lamed-978, Curator Core"
-arc_umbra,WEAPON,"""Ah, the Umbra Pattern Anti Air gun. A tried and tested rotary cannon that utterly shreds fighters. What's not to love?""","- Lamed-978, Curator Core",,
+arc_blackbox,WEAPON,"""The Blackbox AAM? An elegant solution for maintaining space superiority. I hear the multi-lock variable charge warheads make dealing with both fighters and missiles quite effective.""","- Lamed-978, Curator Core"
+arc_stygan,WEAPON,"""The Stygan Meson Emitter? A venerable 'beam shotgun' with catastrophic effects on any enemy hull that violates a certain threshold of the Cube Mass Law""","- Lamed-978, Curator Core"
+arc_umbra,WEAPON,"""Ah, the Umbra AA. A tried and tested rotary cannon that utterly shreds fighters. What's not to love?""","- Lamed-978, Curator Core",,
 arc_glanz,WEAPON,"""Ah, the Glance Pattern beamer. A very competent point defense emitter that can handle many targets at once. The ARC pioneered this technology and guards it heavily.""","- Lamed-978, Curator Core",,
-arc_tenebre,WEAPON,"""The Tenebre Pattern Hadron Cannon? A formidable weapon, like a miniature Tachyon Lance. I've seen what those rifts can do to even shielded ships..""","- Lamed-978, Curator Core"
-arc_macross,WEAPON,"""The Macross Pattern MRM? A potent concussion swarmer missile that ignores point defense by simply exploding..""","- Lamed-978, Curator Core"
+arc_tenebre,WEAPON,"""The Tenebre Hadron Cannon? A formidable weapon, like a miniature Tachyon Lance.""","- Lamed-978, Curator Core"
+arc_macross,WEAPON,"""The Macross Pattern Swarmer? A potent concussion missile that eventually cracks any armor.""","- Lamed-978, Curator Core"
 arc_alphastar,WEAPON,"""The Alpha Star Resonant Missile? A powerful shield destabilizer powered by the core of a Banish. It is unwieldy and underpropelled yet very powerful if it connects""","- Lamed-978, Curator Core"
-arc_busterstar_mirv,WEAPON,"""The Helios Star? This Reaction Weapon once struck fear into the hearts of our foes. It was designed primarily for planetary bombardment, and must connect with corporeal matter to explode. Nevertheless it is still capable in naval combat."" ","- Lamed-978, Curator Core"
+arc_busterstar_mirv,WEAPON,"""The Helios? This Reaction Weapon once struck fear into the hearts of our foes. It was designed primarily for planetary bombardment, and must connect with corporeal matter to explode. Nevertheless it is still capable in naval combat."" ","- Lamed-978, Curator Core"
 arc_whitespace_grazer,SHIP_SYSTEM,"Temporarily shunts the ship into whitespace, with all the effects that entails. A light whitespace core stores 3 charges.",
 arc_overdrive,SHIP_SYSTEM,"Widens the hypershunt pinhole aboard an ARC ship, causing flux performance above dangerous levels",
-arc_aroystra_screen,SHIP_SYSTEM,"Vomits out Aroystra drone fighters",
+arc_aroystra_screen,SHIP_SYSTEM,Vomits out Aroystra drone fighters,

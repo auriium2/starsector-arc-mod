@@ -27,8 +27,8 @@
       "weapons": {
         "WS0003": "arc_mml",
         "WS0004": "arc_mml",
-        "WS0010": "arc_macross",
-        "WS0011": "arc_macross"
+        "WS0008": "arc_macross",
+        "WS0009": "arc_macross"
       }
     },
     {
@@ -37,18 +37,18 @@
       "weapons": {
         "WS0006": "diableavionics_recson2",
         "WS0007": "diableavionics_recson2",
-        "WS0008": "diableavionics_recson2",
-        "WS0009": "diableavionics_recson2",
+        "WS0010": "diableavionics_recson2",
+        "WS0011": "diableavionics_recson2",
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0014": "diableavionics_artassault",
-        "WS0015": "diableavionics_artassault",
-        "WS0016": "diableavionics_artassault",
-        "WS0017": "diableavionics_artassault"
+        "WS0014": "arc_umbra",
+        "WS0015": "arc_umbra",
+        "WS0016": "arc_umbra",
+        "WS0017": "arc_umbra"
       }
     },
     {

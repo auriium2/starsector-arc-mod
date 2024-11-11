@@ -1,19 +1,15 @@
 package arc.weapons.umbra;
 
 import arc.weapons.ArcEveryFrameWeaponEffect;
-
-import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.Global;
-import org.lazywizard.lazylib.MathUtils;
-import org.lwjgl.util.Timer;
-import org.lwjgl.util.vector.Vector2f;
-import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
-import java.awt.Color;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
-import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
-import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
+import com.fs.starfarer.api.combat.WeaponAPI;
+import org.lazywizard.lazylib.MathUtils;
+import org.lwjgl.util.vector.Vector2f;
+
+import java.awt.*;
 
 
 

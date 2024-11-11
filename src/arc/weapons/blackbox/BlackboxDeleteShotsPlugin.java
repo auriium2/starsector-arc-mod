@@ -4,7 +4,6 @@ import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.OnFireEffectPlugin;
 import com.fs.starfarer.api.combat.WeaponAPI;
-import org.lazywizard.lazylib.CollisionUtils;
 
 public class BlackboxDeleteShotsPlugin implements OnFireEffectPlugin {
     @Override

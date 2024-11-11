@@ -6,9 +6,6 @@ import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 
 import java.awt.*;
-import java.util.List;
-import java.util.Objects;
-import java.util.function.Supplier;
 
 public class ARCBaseHullmod extends BaseHullMod {
 

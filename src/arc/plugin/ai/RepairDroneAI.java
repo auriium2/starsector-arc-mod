@@ -419,6 +419,7 @@ public class RepairDroneAI extends BaseAI {
                 self.setFacing(MathUtils.clampAngle(targetFacingOffset + target.getFacing()));
             }
 
+            Global.getSoundPlayer().playLoop(SPARK_SOUND_ID, self, SPARK_PITCH, SPARK_VOLUME, self.getLocation(), self.getVelocity());
             if (Math.random() < SPARK_CHANCE) {
                 Vector2f loc = new Vector2f(self.getLocation());
                 loc.x += cellSize * 0.5f - cellSize * (float) Math.random();

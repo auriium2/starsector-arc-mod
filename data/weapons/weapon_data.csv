@@ -1,23 +1,23 @@
 name,id,tier,rarity,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,ammo/sec,reload size,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,autofireaccBonus,hints,tags,groupTag,tech/manufacturer,for weapon tooltip>>,primaryRoleStr,speedStr,trackingStr,turnRateStr,accuracyStr,customPrimary,customPrimaryHL,customAncillary,customAncillaryHL,noDPSInTooltip,number
-Macross-R Salvo,arc_mml,3,,17500,700,,60,100,5,0,,,,,HIGH_EXPLOSIVE,30,,1,12,60,0.06,30,30,5,6,,650,450,5,15,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE",hyper,,Archotech Research,,Suppression,Excellent,Excellent,,,[%s] Hits against armor deal %s unmitigated damage to armor,Buster Shell|20,,,TRUE,
+Macross-R Salvo,arc_mml,3,,17500,700,,70,100,5,0,,,,,HIGH_EXPLOSIVE,30,,1,12,35,0.06,30,30,5,6,,650,450,5,15,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE",hyper,,Archotech Research,,Suppression,Excellent,Excellent,,,[%s] Hits against armor deal %s unmitigated damage to armor,Buster Shell|20,,,TRUE,
 Dusk Particle Array,arc_gevurah_spinal,3,,10000,900,,200,,5,0,,,,,KINETIC,400,,0,3.3,3,0.32,1,3,5,1,,2000,,,,,SYSTEM,hyper,,Archotech Research,,General,,,,,[%s] Does %sx damage depending on the reaction mass of the target,Graviton Collapse|1/1.5/2/2.5,,,,
-Macross-R Salvo,arc_gevurah_mm_l,3,,7500,700,,60,,5,0,,,,,HIGH_EXPLOSIVE,30,,1,12,40,0.06,30,30,5,6,,650,450,5,15,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE",hyper,,Archotech Research,,Suppression,Excellent,Excellent,,,[%s] Hits against armor deal %s unmitigated damage to armor,Buster Shell|20,,,TRUE,
-Macross-R Salvo,arc_gevurah_mm_r,3,,7500,700,,60,0,5,0,,,,,HIGH_EXPLOSIVE,30,,1,8,40,0.06,30,30,5,6,,650,450,5,15,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE",hyper,,Archotech Research,,Suppression,Excellent,Excellent,,,[%s] Hits against armor deal %s unmitigated damage to armor,Buster Shell|20,,,TRUE,
+Macross-R Salvo,arc_gevurah_mm_l,3,,7500,700,,70,,5,0,,,,,HIGH_EXPLOSIVE,30,,1,12,25,0.06,30,30,5,6,,650,450,5,15,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE",hyper,,Archotech Research,,Suppression,Excellent,Excellent,,,[%s] Hits against armor deal %s unmitigated damage to armor,Buster Shell|20,,,TRUE,
+Macross-R Salvo,arc_gevurah_mm_r,3,,7500,700,,70,0,5,0,,,,,HIGH_EXPLOSIVE,30,,1,8,25,0.06,30,30,5,6,,650,450,5,15,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE",hyper,,Archotech Research,,Suppression,Excellent,Excellent,,,[%s] Hits against armor deal %s unmitigated damage to armor,Buster Shell|20,,,TRUE,
 Sun Spear Aleph,arc_netzach_spinal,3,,18000,1000,4000,,1000,1000,,,,,2,ENERGY,,6000,1,3,2.0,30,,,,,10000,,,,,,"SYSTEM, STRIKE",hyper,,Archotech Research,,Strike,,,,,"%s around the Sunspear's graviton burst, causing flight systems to destabilize.",Warps space,,,,
 Sun Spear Beth,arc_kether_spinal,3,,18000,1000,5000,,2000,1000,,,,,2,ENERGY,,6000,1,3,2.0,35,,,,,10000,,,,,,"SYSTEM, STRIKE",hyper,,Archotech Research,,Strike,,,,,"%s around the Sunspear's graviton burst, causing flight systems to destabilize.",Warps space,,,,
-Absolution,arc_yesod_spinal,3,,10000,1200,,900,,300,0,,,,,ENERGY,2200,,1.2,6,1,,,,,,,5000,,,,,SYSTEM,hyper,,Archotech Research,,General,,,,,Does %sx damage depending on the reaction mass of the target,1/2/3/4,,,,
-Helios Star Reaction Warhead,arc_busterstar_mirv,2,,1550,3000,,7500,800,500,25,,4,,4,FRAGMENTATION,,,0,7,1,,0,0,0,0,,10,400,6,300,,"SYSTEM, DO_NOT_CONSERVE, DO_NOT_AIM","missile13, strike9, diable_weapon_bp",,Archotech Research,,Mass Destruction,Excellent,Fast,Fast,,On contact with reaction mass creates a %s that does %s damage to the target,mega fireball|WMD-Tier,"Aware of the blast thanks to ARC targetting arrays, allies will not take damage.",,TRUE,,
+Absolution,arc_yesod_spinal,3,,10000,1200,,800,,300,0,,,,,ENERGY,4400,,1.2,11,1,,,,,,,5000,,,,,SYSTEM,hyper,,Archotech Research,,General,,,,,Does %sx damage depending on the reaction mass of the target,1/2/3/4,,,,
+Helios Reaction Weapon,arc_busterstar_mirv,2,,1550,3000,,7500,800,500,25,,4,,4,FRAGMENTATION,,,0,7,1,,0,0,0,0,,10,400,6,300,,"SYSTEM, DO_NOT_CONSERVE, DO_NOT_AIM","missile13, strike9, diable_weapon_bp",,Archotech Research,,Mass Destruction,Excellent,Fast,Fast,,On contact with reaction mass creates a %s that does %s damage to the target,mega fireball|WMD-Tier,"Aware of the blast thanks to ARC targetting arrays, allies will not take damage.",,TRUE,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Blackbox ADMM,arc_blackbox,,,,2000,,150,,,,,,,,FRAGMENTATION,100,,1,18,1,0,,,,,,0,0,4,50,,"SYSTEM, DO_NOT_AIM, PD_ONLY, PD, ANTI_FTR","pd11, missile0, restricted",,Archotech Research,,Point Defense (Area),,Perfect,,,"Variable charge warheads do %s damage in a small radius when hitting fighters, otherwise does %s damage in a large radius.",Energy|Fragmentation,,,,,,
 Blackbox ADMM Salvo,arc_blackbox_salvo,,,,2000,,150,,,,,,,,FRAGMENTATION,100,,1,18,2,0,,,,,,0,0,4,,,"SYSTEM, DO_NOT_AIM, PD_ONLY, PD, ANTI_FTR","pd11, missile0, restricted",,Archotech Research,,Point Defense (Area),,Perfect,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,Archotech Research,,,,,,,
-Umbra CIWS,arc_umbra,3,,12000,300,,7,10,10,180,5,,,,HIGH_EXPLOSIVE,4,,0.035,0.035,1,,0.3,15,0.05,7,,1800,,12,,1000,"ANTI_FTR, IGNORES_FLARES, PD","pd6, arc_bp, restricted",,Archotech Research,,Anti Fighter,,,,,Deals %s to fighters. Ignores flares.,2x HE damage,Only functions on ships with Whitespace Core
-Glance Beam Node,arc_glanz,3,,30000,700,200,,,,120,7,,,,FRAGMENTATION,,90,0.4,0.7,0.7,,,,,,2100,,,,,1000,"PD, IGNORES_FLARES","pd9, arc_bp, restricted",,Archotech Research,,Point Defense (Multiple),,,,Perfect,Fires %s that burn and cause additional fragmentation damage. Ignores flares.,multiple halo beams.,Only functions on ships with Whitespace Core
+Umbra CIWS,arc_umbra,3,,12000,300,,10,10,10,180,5,,,,HIGH_EXPLOSIVE,4,,0.035,0.035,1,,0.3,15,0.05,7,,1800,,12,,1000,"ANTI_FTR, IGNORES_FLARES, PD","pd6, arc_bp, restricted",,Archotech Research,,Anti Fighter,,,,,Deals %s to fighters. Ignores flares.,2x HE damage,Only functions on ships with Whitespace Core
+Glance Beam Node,arc_glanz,3,,30000,700,240,,,,120,7,,,,FRAGMENTATION,,90,0.4,0.7,0.7,,,,,,2100,,,,,1000,"PD, IGNORES_FLARES","pd9, arc_bp, restricted",,Archotech Research,,Point Defense (Multiple),,,,Perfect,Fires %s that burn and cause additional fragmentation damage. Ignores flares.,multiple halo beams.,Only functions on ships with Whitespace Core
 Stygan-K Beam Cannon,arc_stygan,3,,45000,500,2500,,,200,15,13,,,,FRAGMENTATION,,2400,0.75,1.1,0.3,3.5,,,,,10000,,,,,,,"energy14, beam9, arc_bp, hyper, restricted",,Archotech Research,,Strike,,,,,"Causes %s explosions on impact that each deal %s soft flux damage, based on target hullsize",5|5%/8%/12%/20% HE,Only functions on ships with Whitespace Core
 Tenebre-K Hadron Cannon,arc_tenebre,3,,45000,700,700,,,0,5,13,,,,HIGH_EXPLOSIVE,,600,1.5,0.7,1.5,10,,,,,1500,,,,,,"STRIKE, USE_VS_FRIGATES,DANGEROUS","hyper, energy14, restricted, arc_bp",,Archotech Research,,Shield Bypass,,,,,Causes %s that bypass shields and deal %s with high damage falloff,resonant explosions|300 HE damage,Only functions on ships with Whitespace Core,,,,
 Alpha Star MRM,arc_alphastar,3,,30000,1800,,800,3000,0,6,5,5,,,KINETIC,0,,0,12,1,0.5,6,9,9,9,,550,300,6,300,,DO_NOT_AIM,"missile7, strike4, restricted, arc_bp",,Archotech Research,,Shieldbreaker,Perfect,Excellent,,,Causes 1 %s and 6 %s which do kinetic and emp damage,mega fireball|resonant fireballs,Only functions on ships with Whitespace Core,,TRUE,,
 Dusk Particle Beam,arc_dusk,3,,30000,900,,200,100,50,7,13,,,,KINETIC,400,,1,2,1,,,,,,,2000,,0.07,,,,"energy15, LR, arc_bp, restricted",,Archotech Research,,General,Perfect,,Poor,,[%s] Does %sx damage depending on the reaction mass of the target,Graviton Collapse|1/1.5/2/2.5,Only functions on ships with Whitespace Core,,,,
-Macross-R MRM,arc_macross,,,,2000,,60,,90,,10,,,,HIGH_EXPLOSIVE,,,1,12,18,0.08,6,9,3,1,,600,50,4,50,,DO_NOT_AIM,"pd11, missile0, restricted",,Archotech Research,,General,,Perfect,,,,,,,,,,
+Macross-R MRM,arc_macross,,,,2000,,90,,70,,10,,,,HIGH_EXPLOSIVE,,,1,12,14,0.08,6,9,3,1,,600,50,4,50,,DO_NOT_AIM,"pd11, missile0, restricted",,Archotech Research,,General,,Perfect,,,,,,,,,,
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,arc_kether_lights,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
@@ -33,25 +33,25 @@ Macross-R MRM,arc_macross,,,,2000,,60,,90,,10,,,,HIGH_EXPLOSIVE,,,1,12,18,0.08,6
 ,arc_malkuth_flux,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 ,arc_chokmah_flux,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Glance-U,arc_deveikuth_head,,,,300,240,,,,36,,,,,FRAGMENTATION,,,0,0,,,,,,,1500,,,,,,"SYSTEM, ANTI_FTR, PD, IGNORES_FLARES",,,,,,SLOW,,,,,,,,,,,
-Dusk-U,arc_deveikuth_right,1,,2250,500,,200,,50,25,11,8,,,ENERGY,,,0,2.5,,,3,10,3,1,,1000,,,250,,SYSTEM,,,,,,,,,,,,,,,,,
-Utau-U,arc_deveikuth_left,1,,1750,400,,15,20,10,20,11,200,4,200,KINETIC,,,0,0.069,1,,1,20,0.4,3,,1400,,,100,,SYSTEM,,,,,,,,,,,,,,,,,
+Glance Micro,arc_deveikuth_head,,,,300,240,,10,,36,,,,,FRAGMENTATION,,,0.4,0.7,0.7,,,,,,2100,,,,,,"SYSTEM, PD, IGNORES_FLARES",,,,,,SLOW,,,,,,,,,,,
+Dusk Micro,arc_deveikuth_right,1,,2250,500,,200,,50,25,11,8,,,ENERGY,,,0,2.5,,,3,10,3,1,,1000,,,250,,SYSTEM,,,,,,,,,,,,,,,,,
+Tau Macrocannon,arc_deveikuth_left,1,,1750,400,,15,20,10,20,11,200,4,200,KINETIC,,,0,0.069,1,,1,20,0.4,3,,1400,,,100,,SYSTEM,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,arc_teshuvah_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,,
 ,arc_chesed_leftarm,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM
 ,arc_chesed_rightarm,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM
-Umbra-U CIWS,arc_teshuvah_leftarm,,,,200,,10,10,10,180,,100,5,100,FRAGMENTATION,,,0.035,0.035,1,,0.3,1,0.05,4,,1800,,12,,,"SYSTEM, ANTI_FTR, IGNORES_FLARES",,,Archotech Research,,,,,,,,,,,,,
-Stygan-U,arc_teshuvah_rightarm,,,,400,1100,,,40,45,,6,,6,FRAGMENTATION,,,0.7,0.7,0.4,3,0,1,0.3,2,2000,,,,,,"SYSTEM, ANTI_FTR, IGNORES_FLARES",,,Archotech Research,,,,,,,,,,,,,04
+Umbra Micro CIWS,arc_teshuvah_leftarm,,,,400,,15,25,10,180,,100,8,100,FRAGMENTATION,,,0.035,0.035,1,,0.3,1,0.05,4,,1800,,12,,,"SYSTEM, ANTI_FTR, IGNORES_FLARES, PD",,,Archotech Research,,,,,,,,,,,,,
+Stygan Micro,arc_teshuvah_rightarm,,,,400,1100,,,40,45,,6,,6,FRAGMENTATION,,,0.7,0.7,0.4,3,0,1,0.3,2,2000,,,,,,"SYSTEM, ANTI_FTR, IGNORES_FLARES",,,Archotech Research,,,,,,,,,,,,,04
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Sun Spear Minelayer Sys,arc_sunspear_minelayer,0,,,,,500,,25,,,,,,HIGH_EXPLOSIVE,0,,,,1,,,,,0,0,20,1000,,,,SYSTEM,,,,,Unknown,,,,,,,,,,,
 Buster Star Warhead Sys,arc_busterstar_warhead,,,,3000,,1500,200,500,,,,,,FRAGMENTATION,,,,,,,0,0,0,0,,1200,100,6,700,,SYSTEM,,,,,,,,,,,,,,,,
 Blackbox Stage 2 Sys,arc_blackbox_stage2,,,,2000,,150,,,,,,,,FRAGMENTATION,0,,0,0,0,0,,,,,,500,0,6,50,,SYSTEM,,,,,,,,
 Blackbox Stage 1 Sys,arc_blackbox_stage1,,,,2000,,150,,,,,,,,FRAGMENTATION,100,,1,5,1,0,,,,,,0,0,4,50,,SYSTEM,,,,,,,
-Umbra Pellet Sys,arc_umbra_pellet,,,,300,,8,10,10,20,42,,,,HIGH_EXPLOSIVE,,,,,,,,,,,,1800,,12,,,SYSTEM,,,,,,,,,,,,,,,,
+Umbra Pellet Sys,arc_umbra_pellet,,,,300,,10,10,10,20,42,,,,ENERGY,,,,,,,,,,,,1800,,12,,,SYSTEM,,,,,,,,,,,,,,,,
 Tenebre Minelayer Sys,arc_tenebre_minelayer,3,,,,,300,,25,,,,,,HIGH_EXPLOSIVE,0,,,,1,,,,,0,0,20,1000,,,,SYSTEM,,,Archotech Research,,Unknown,,,,,,,,,,,
 Alpha Star Minelayer Sys,arc_alphastar_minelayer,3,,,,,250,1000,25,,,,,,KINETIC,0,,,,1,,,,,0,0,20,1000,,,,SYSTEM,,,Archotech Research,,Unknown,,,,,,,,,,,
-Umbra Mini Pellet Sys,arc_umbra_mini_pellet,,,,300,,13,10,10,20,42,,,,FRAGMENTATION,,,,,,,,,,,,1800,,12,,,SYSTEM,,,,,,,,,,,,,,,,
+Umbra Mini Pellet Sys,arc_umbra_mini_pellet,,,,300,,12,10,10,20,42,,,,HIGH_EXPLOSIVE,,,,,,,,,,,,1800,,12,,,SYSTEM,,,,,,,,,,,,,,,,
 Micro Stygan Minelayer Sys,arc_teshuvah_minelayer,0,,,,,40,,25,,,,,,HIGH_EXPLOSIVE,0,,,,1,,,,,0,0,20,1000,,,,SYSTEM,,,,,Unknown,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,

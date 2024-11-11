@@ -1,12 +1,10 @@
 package arc.plugin;
 
-import ch.ethz.globis.phtree.PhEntryF;
 import ch.ethz.globis.phtree.PhTreeF;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.FleetMemberDeploymentListener;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
-import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.Arrays;

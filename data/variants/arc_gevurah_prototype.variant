@@ -22,10 +22,9 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "diableavionics_state",
-
-        "WS0010": "lightag",
-        "WS0011": "lightag"
+        "WS0002": "diableavionics_recson2",
+        "WS0010": "diableavionics_recson",
+        "WS0011": "diableavionics_recson"
 
       }
     },

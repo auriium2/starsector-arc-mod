@@ -1,10 +1,10 @@
 package arc.hullmod.microshunt;
 
 import arc.VentType;
-import arc.hullmod.microshunt.ai.TurnIntoIEDAIPart;
-import arc.util.ARCUtils;
 import arc.hullmod.ARCBaseHullmod;
 import arc.hullmod.IHullmodPart;
+import arc.hullmod.microshunt.ai.TurnIntoIEDAIPart;
+import arc.util.ARCUtils;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
@@ -170,6 +170,15 @@ public class Microshunt extends ARCBaseHullmod {
 		tooltip.addPara("Scales with Archotech Research's venting based technologies", pad);
 		tooltip.addPara("", pad, h, "");
 
+		tooltip.addSectionHeading("Passive Ability - Iono Hyperdense Shield", Misc.getPositiveHighlightColor(), Misc.getStoryDarkColor(), Alignment.MID, 0f);
+		tooltip.addPara("", pad, h, "");
+		tooltip.addPara("Venting instead diverts power to the microshunt granting %s to the ARC ship", pad, good, "unique utilities");
+		tooltip.addPara("", pad, h, "");
+		tooltip.addPara("Base venting speed increased to %s.", pad, h, "" + (int) BASE_VENT_BONUS + "%");
+		tooltip.addPara("Venting speed while at max flux decreased to %s.", pad, h, "" + (int)MAX_VENT_BONUS + "%");
+		tooltip.addPara("Scales with Archotech Research's venting based technologies", pad);
+		tooltip.addPara("", pad, h, "");
+
 
 		tooltip.addSectionHeading("Incompatibilities", Misc.getGrayColor(), Misc.getDarkHighlightColor(), Alignment.MID, 0f);
 		tooltip.addPara("", pad, h, "");
@@ -213,13 +222,25 @@ public class Microshunt extends ARCBaseHullmod {
 
 
 	boolean runOnce = false;
+
+	float counter =0;
+
 	@Override
 	public void advanceInCombat(ShipAPI ship, float amount) {
 		super.advanceInCombat(ship, amount);
+		counter += amount;
+
+
 
 		CombatEngineAPI combat = Global.getCombatEngine();
 
 		if (combat.isPaused()) return;
+
+		if (ship.getAllWeapons().stream().anyMatch(w -> {
+			return w.getDisplayName().contains("tenebre") && w.isFiring(); //TODO
+		})) {
+			ship.blockCommandForOneFrame(ShipCommand.USE_SYSTEM);
+		}
 
 
 		//TODO is this bad to do every frame? oh well..
@@ -241,16 +262,22 @@ public class Microshunt extends ARCBaseHullmod {
 		}
 
 
-		Color toUseForStuff = new Color(50, 120, 160, 130);
+
 
 		if (ship.getShield() != null) {
+			ReturnType type = oscillateShieldColor(0, counter);
+
+			//TODO: adaptive shield
+
+
 			ship.setJitterShields(true);
-			ship.getShield().setInnerColor(toUseForStuff);
-			ship.setJitterUnder(ship, toUseForStuff, 0.5f * 3.0f, (int)(3.0f * 0.6), 1);
+			ship.getShield().setInnerColor(type.color);
+
+			ship.setJitterUnder(ship, type.color, 2f * type.alpha, (int)(3f * type.alpha), 1);
 
 			shield.setRadius(radius, inner, outer);
-			shield.setInnerRotationRate(0.0f); //super slow
-			shield.setRingRotationRate(0f); //do not rotate, use circle
+			shield.setInnerRotationRate(-1.5f); //super slow
+			shield.setRingRotationRate(1.5f); //do not rotate, use circle
 		}
 
 
@@ -271,6 +298,83 @@ public class Microshunt extends ARCBaseHullmod {
 	}
 
 	// Useless methods
+
+
+	class ReturnType {
+		Color color;
+		float alpha;
+
+		public ReturnType(Color color, float alpha) {
+			this.color = color;
+			this.alpha = alpha;
+		}
+	}
+
+	public ReturnType oscillateShieldColor(double bias, float elapsedTime) {
+
+		// Define the oscillation speed (ensure this constant is defined appropriately)
+
+		// Clamp bias to [0, 2] to ensure it stays within the defined states
+		bias = Math.max(0, Math.min(2, bias));
+
+		// Define the three base colors
+		int r0 = 120, g0 = 120, b0 = 143; // Light cyan
+		int r1 = 33, g1 = 59, b1 = 82;   // Light blue
+		int r2 = 8,  g2 = 24, b2 = 37;   // Dark greyish-blue
+
+		// Define the base alpha values without oscillation
+		float alpha0 = 0.5f;
+		float alpha1 = 0.3f;
+		float alpha2 = 0.4f;
+
+		// Initialize variables for the blended color and alpha
+		int blendedRed, blendedGreen, blendedBlue;
+		float blendedAlpha;
+		float factor;
+
+		if (bias <= 1) {
+			// Interpolate between color0 and color1
+			factor = (float) bias; // bias is between 0 and 1
+
+			blendedRed   = (int) (r0 + factor * (r1 - r0));
+			blendedGreen = (int) (g0 + factor * (g1 - g0));
+			blendedBlue  = (int) (b0 + factor * (b1 - b0));
+
+			blendedAlpha = alpha0 + factor * (alpha1 - alpha0);
+		} else {
+			// Interpolate between color1 and color2
+			factor = (float) (bias - 1); // bias is between 0 and 1
+
+			blendedRed   = (int) (r1 + factor * (r2 - r1));
+			blendedGreen = (int) (g1 + factor * (g2 - g1));
+			blendedBlue  = (int) (b1 + factor * (b2 - b1));
+
+			blendedAlpha = alpha1 + factor * (alpha2 - alpha1);
+		}
+
+		// Clamp the blended color components to [0, 255]
+		blendedRed   = Math.max(0, Math.min(255, blendedRed));
+		blendedGreen = Math.max(0, Math.min(255, blendedGreen));
+		blendedBlue  = Math.max(0, Math.min(255, blendedBlue));
+
+		// Calculate the oscillation factor
+		float oscillationFactor = (float) Math.sin(elapsedTime * 0.7);
+
+		// Modify color based on oscillation
+		int oscillatingRed   = Math.max(0, Math.min(255, blendedRed + (int) (oscillationFactor * 10f)));
+		int oscillatingGreen = Math.max(0, Math.min(255, blendedGreen + (int) (oscillationFactor * 10f)));
+		int oscillatingBlue  = Math.max(0, Math.min(255, blendedBlue + (int) (oscillationFactor * 5f)));
+
+		Color oscillatingColor = new Color(oscillatingRed, oscillatingGreen, oscillatingBlue);
+
+		// Apply oscillation to alpha
+		float oscillatingAlpha = blendedAlpha + 0.2f * oscillationFactor; // Adjust the multiplier as needed
+
+		// Clamp alpha to [0, 1]
+		oscillatingAlpha = Math.max(0f, Math.min(0.7f, oscillatingAlpha));
+
+		return new ReturnType(oscillatingColor, oscillatingAlpha);
+	}
 
 
 	@Override

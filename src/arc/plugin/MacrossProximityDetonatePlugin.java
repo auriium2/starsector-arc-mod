@@ -6,8 +6,6 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
-import org.lwjgl.util.vector.Vector2f;
 
 import java.util.List;
 
@@ -23,27 +21,34 @@ public class MacrossProximityDetonatePlugin implements EveryFrameCombatPlugin {
 
     @Override
     public void advance(float amount, List<InputEventAPI> events) {
+
+        if (Global.getCombatEngine().isPaused()) return;
         intervalUtil.advance(amount);
         if (!intervalUtil.intervalElapsed()) return;
 
         List<ShipAPI> ships = Global.getCombatEngine().getShips();
 
         for (MissileAPI missileAPI : Global.getCombatEngine().getMissiles()) {
-            if (missileAPI.isExpired() || !Global.getCombatEngine().isInPlay(missileAPI)) continue;
-
-            if (Math.random() > 0.1f) continue;
+            if (!Global.getCombatEngine().isInPlay(missileAPI)) continue;
+            if (Math.random() > 0.22f) continue;
             if (!missileAPI.getProjectileSpecId().equals("arc_mml_missile")) continue;
 
-            float scale  = MathUtils.getRandomNumberInRange(0.8f, 2.5f);
-            float range = 350f * scale;
+            float scale  = MathUtils.getRandomNumberInRange(0.7f, 1.2f);
+            float range = 500 * scale;
 
             for (ShipAPI enemyPossibleShip : ships) {
                 if (!enemyPossibleShip.isAlive() || enemyPossibleShip.isHulk()) continue;
                 if (enemyPossibleShip.getOwner() == missileAPI.getOwner()) continue;
                 if (MathUtils.isWithinRange(enemyPossibleShip.getLocation(), missileAPI.getLocation(), range)) {
                     //happy birthday!!
-                    MacrossOnHitEffect.explode(missileAPI.getLocation(), missileAPI, scale, 1f);
-                    Global.getCombatEngine().removeEntity(missileAPI);
+                    RunnableQueuePlugin.queueTask(
+                            () -> {
+                                MacrossOnHitEffect.explode(missileAPI.getLocation(), missileAPI, scale, 1f);
+                                Global.getCombatEngine().removeEntity(missileAPI);
+                            },
+                            MathUtils.getRandomNumberInRange(1,5)
+                    );
+
                 }
             }
         }

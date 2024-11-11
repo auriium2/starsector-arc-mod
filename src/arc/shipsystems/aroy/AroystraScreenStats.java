@@ -1,5 +1,6 @@
 package arc.shipsystems.aroy;
 
+import arc.plugin.RunnableQueuePlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
@@ -34,36 +35,46 @@ public class AroystraScreenStats extends BaseShipSystemScript {
             		int owner = ship.getOwner();
             		
             		Vector2f posZero = weapon.computePosition(ship);
-            		
 
-        			for (int i = 0; i < MathUtils.getRandomNumberInRange(1, (int) (5 * ship.getFluxLevel())); i++) {
-                		
-                		CombatFleetManagerAPI FleetManager = engine.getFleetManager(owner);
-                		FleetManager.setSuppressDeploymentMessages(true);
-                		FleetMemberAPI platMember = Global.getFactory().createFleetMember(FleetMemberType.FIGHTER_WING, WING_NAME);
-                		platMember.getRepairTracker().setCrashMothballed(false);
-                		platMember.getRepairTracker().setMothballed(false);
-                		platMember.getRepairTracker().setCR(1f);
-                		platMember.setOwner(owner);
-                		platMember.setAlly(ship.isAlly());
-                		
-                		ShipAPI drone = engine.getFleetManager(owner).spawnFleetMember(platMember, posZero, weapon.computeMidArcAngle(ship), 0f);
-                		drone.setCRAtDeployment(0.7f);
-                		drone.setCollisionClass(CollisionClass.FIGHTER);
-                		
-                		float droneAngle = weapon.computeMidArcAngle(ship) - 45 + (i * 30f);                		
-                		drone.setFacing(droneAngle);
-                		
-                		Vector2f droneVel = MathUtils.getPointOnCircumference(ship.getVelocity(), MathUtils.getRandomNumberInRange(180f, 240f), droneAngle + MathUtils.getRandomNumberInRange(-5f, 5f));
-                		drone.getVelocity().set(droneVel);
 
-                		FleetManager.setSuppressDeploymentMessages(false);
+					for (int i = 0; i < 3; i++) {
+						ShipAPI finalShip = ship;
+						int finalI = i;
+						RunnableQueuePlugin.queueTask(() -> {
 
-        	            for (int j=0; j < 3; j++) {
-                    		engine.addSmoothParticle(posZero, MathUtils.getRandomPointInCircle(droneVel, 25f), 17f, 0.6f, 0.15f, new Color(90,150,255,255));
-        	            }
-                		
-        			}
+							engine.addHitParticle(posZero,
+									finalShip.getVelocity(),
+									75f,
+									0.8f,
+									0.1f,
+									new Color(80,175,250,255));
+
+							CombatFleetManagerAPI FleetManager = engine.getFleetManager(owner);
+							FleetManager.setSuppressDeploymentMessages(true);
+							FleetMemberAPI platMember = Global.getFactory().createFleetMember(FleetMemberType.FIGHTER_WING, WING_NAME);
+							platMember.getRepairTracker().setCrashMothballed(false);
+							platMember.getRepairTracker().setMothballed(false);
+							platMember.getRepairTracker().setCR(1f);
+							platMember.setOwner(owner);
+							platMember.setAlly(finalShip.isAlly());
+
+							ShipAPI drone = engine.getFleetManager(owner).spawnFleetMember(platMember, posZero, weapon.computeMidArcAngle(finalShip), 0f);
+							drone.setCRAtDeployment(0.7f);
+							drone.setCollisionClass(CollisionClass.FIGHTER);
+
+							float droneAngle = weapon.computeMidArcAngle(finalShip) - 45 + (finalI * 30f);
+							drone.setFacing(droneAngle);
+
+							Vector2f droneVel = MathUtils.getPointOnCircumference(finalShip.getVelocity(), MathUtils.getRandomNumberInRange(180f, 240f), droneAngle + MathUtils.getRandomNumberInRange(-5f, 5f));
+							drone.getVelocity().set(droneVel);
+
+							FleetManager.setSuppressDeploymentMessages(false);
+
+							for (int j=0; j < 3; j++) {
+								engine.addSmoothParticle(posZero, MathUtils.getRandomPointInCircle(droneVel, 25f), 17f, 0.6f, 0.15f, new Color(90,150,255,255));
+							}
+						}, MathUtils.getRandomNumberInRange(1,13));
+					}
 
             		engine.addHitParticle(posZero,
             				ship.getVelocity(),

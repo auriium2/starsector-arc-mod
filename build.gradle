@@ -7,16 +7,11 @@ buildscript {
         }
     }
 
-    dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.7.2-FIX'
-    }
 }
 
 plugins {
     id 'java'
 }
-
-apply plugin: 'me.tatarka.retrolambda'
 
 compileJava.options.encoding = 'UTF-8'
 
@@ -73,10 +68,10 @@ jar {
 
 // compile time dependencies
 dependencies {
-    implementation "jaghaimo:starsector-api:0.96a-RC10@starfarer.api.jar"
     implementation files('libs/MagicLib.jar')
-    implementation files('libs/LazyLib.jar')
     implementation files('libs/Graphics.jar')
+    implementation files('libs/LazyLib.jar')
+    implementation files('libs/starfarer.api.jar')
 
     implementation 'ch.ethz.globis.phtree:phtree:2.8.0'
 
@@ -120,8 +115,3 @@ def readModInfoJson() {
     return slurper.parse(jsonFile)
 }
 
-retrolambda {
-    javaVersion JavaVersion.VERSION_1_7
-    defaultMethods false
-    incremental false
-}

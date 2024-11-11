@@ -1,12 +1,12 @@
 trail,projectile,sprite,minLength,fadeIn,duration,fadeOut,sizeIn,sizeOut,colorIn,colorOut,opacity,textLength,textScroll,randomTextureOffset,distance,dispersion,drift,frameOffsetMult,fadeOnFadeOut,angleAdjustment,additive,velocityIn,velocityOut,randomVelocity,angle,rotationIn,rotationOut,randomRotation,renderBelowExplosions
 
-u1,arc_umbra_shot,base_trail_smooth,10,0,0.05,1.5,1,0.2,"[30,30,180]","[50,150,180]",0.35,256,-128,TRUE,0,0,1,0,TRUE,FALSE,TRUE,10,80,0,0,0,0,FALSE,TRUE
+u1,arc_umbra_shot,base_trail_smooth,10,0,0.05,1.2,1,0.2,"[30,30,180]","[50,150,180]",0.35,256,-128,TRUE,0,0,1,0,TRUE,FALSE,TRUE,10,80,0,0,0,0,FALSE,TRUE
 u2,arc_umbra_shot,base_trail_contrail,10,0,0.05,0.7,1,0.3,"[240,120,240]","[90,200,240]",0.4,256,-128,TRUE,0,13,1,0,TRUE,FALSE,TRUE,30,200,0.3,0,0,180,false,TRUE
-dusk_trail1,arc_dusk_shot,trail_beam,10,0,0,0.8,60,30,"[132,189,200]","[255,255,255]",0.6,400,-300,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0,30,10,50,true,false
-dusk_trail2,arc_dusk_shot,trail_beam,10,0,0,0.8,60,30,"[132,189,200]","[255,255,255]",0.5,400,-450,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0.1,30,10,50,true,false
+dusk_trail1,arc_dusk_shot,trail_beam,10,0,0,0.3,30,20,"[132,189,200]","[255,255,255]",0.6,400,-300,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0,30,10,50,true,false
+dusk_trail2,arc_dusk_shot,trail_beam,10,0,0,0.3,30,20,"[132,189,200]","[255,255,255]",0.5,400,-450,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0.1,30,10,50,true,false
 dusk_trail_m1,arc_dusk_shot,trail_beam,10,0,0,0.8,60,30,"[132,189,200]","[255,255,255]",0.6,400,-300,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0,30,10,50,true,false
 dusk_trail_m2,arc_dusk_shot,trail_beam,10,0,0,0.8,60,30,"[132,189,200]","[255,255,255]",0.5,400,-450,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0.1,30,10,50,true,false
-
+,,,
 
 dusk_super_trail1,arc_dusk_super_shot,trail_beam,10,0,0,0.8,60,30,"[132,189,255]","[255,255,255]",0.6,400,-300,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0,30,10,50,true,false
 dusk_super_trail2,arc_dusk_super_shot,trail_beam,10,0,0,0.8,60,30,"[132,189,255]","[255,255,255]",0.5,400,-450,TRUE,0,0,1,0,TRUE,FALSE,TRUE,0,0,0.1,30,10,50,true,false

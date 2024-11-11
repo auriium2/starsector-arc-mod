@@ -2,17 +2,17 @@ package arc.hullmod.microshunt.ai;
 
 import arc.Index;
 import arc.hullmod.ARCData;
-import arc.util.ARCUtils;
-import arc.hullmod.laminate.ArchotechLaminate;
 import arc.hullmod.IHullmodPart;
+import arc.hullmod.laminate.ArchotechLaminate;
 import arc.hullmod.laminate.VentingGivesArmorPart;
+import arc.util.ARCUtils;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.util.IntervalUtil;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
 
-
+import java.awt.*;
 import java.util.List;
 
 
@@ -67,18 +67,17 @@ public class VentAIPart implements IHullmodPart<ARCData> {
 
         float tooMuchArmorDamageThreshold = ARCUtils.decideBasedOnHullSize(
                 ship,
-                0.1f,
-                0.12f,
-                0.15f,
-                0.18f
+                0.18f,
+                0.18f,
+                0.18f,
+                0.2f
         );
 
         float durationToCheck = ship.getFluxTracker().getTimeToVent();
 
         float armorDamage = ARCUtils.armorDamagePossible(
                 ship,
-                tooMuchArmorDamageThreshold,
-                2500f,
+                1200,
                 durationToCheck,
                 damageMult
         );
@@ -90,10 +89,16 @@ public class VentAIPart implements IHullmodPart<ARCData> {
         }*/
 
         boolean tooMuchArmorDamage = armorDamage >= (ship.getArmorGrid().getArmorRating() * tooMuchArmorDamageThreshold) ;
-        boolean tooMuchShieldDamage = ARCUtils.tooMuchShieldDamageIncoming(ship, 0.07f, 1300f, durationToCheck);
+        boolean tooMuchShieldDamage = ARCUtils.tooMuchShieldDamageIncoming(
+                ship,
+                MathUtils.getRandomNumberInRange(0.07f, 0.14f),
+                1300f,
+                durationToCheck
+        );
 
+/*
 
-   /*     if (tooMuchArmorDamage) {
+        if (tooMuchArmorDamage) {
             ship.setJitterUnder(ship, Color.RED, 4f, 4, 2f);
         }
 
@@ -101,6 +106,7 @@ public class VentAIPart implements IHullmodPart<ARCData> {
             ship.setJitterUnder(ship, Color.BLUE, 4f, 4, 2f);
         }
 */
+
 
 
         VentingGivesArmorPart.Data data  = (VentingGivesArmorPart.Data) ship.getCustomData().get(VentingGivesArmorPart.VENTING_ARMOR);
@@ -136,7 +142,7 @@ public class VentAIPart implements IHullmodPart<ARCData> {
             } else {
                 //back down, but still armor vent
 
-                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.BACK_OFF, 2f);
+                //ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.BACK_OFF, 2f);
                 ship.giveCommand(ShipCommand.VENT_FLUX, null, 0);
             }
 
@@ -145,9 +151,7 @@ public class VentAIPart implements IHullmodPart<ARCData> {
         }
 
 
-
-
-        if (flags.hasFlag(ShipwideAIFlags.AIFlags.DO_NOT_USE_SHIELDS) && fluxLevel < 0.55f && fluxLevel > 0.05f && (Math.random() < 0.4f)) { //super efficient damper) {
+        if (flags.hasFlag(ShipwideAIFlags.AIFlags.DO_NOT_USE_SHIELDS) && fluxLevel < 0.55f && fluxLevel > 0.04f && (Math.random() < 0.6f)) { //super efficient damper) {
 
             if (tooMuchArmorDamage) {
 

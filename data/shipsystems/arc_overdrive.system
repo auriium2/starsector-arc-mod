@@ -1,7 +1,7 @@
 {
 	"id":"arc_overdrive",
-	"type":"ENGINE_MOD",
-	"aiType":"BURN_DRIVE",
+	"type":"STAT_MOD",
+	"aiType":"TEMPORAL_SHELL",
 	
 	"statsScript":"arc.shipsystems.overdrive.Overdrive",
 	"useSound":"arc_overdrive_startup",
@@ -34,7 +34,7 @@
 	
 	"aiHints":{
 		"activeSpeedIncrease":100,
-		"burstMovementPotential":200,
-		"averageSpeedIncrease":100,
+		"burstMovementPotential":0,
+		"averageSpeedMult":1.4,
 	}	
 }

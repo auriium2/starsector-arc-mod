@@ -50,5 +50,5 @@
   "everyFrameEffect": "arc.weapons.absolution.AbsolutionEveryFrameEffect",
 
   "projectileSpecId":"arc_dusk_super_shot",
-  "fireSoundTwo":"arc_yesod_spinal_fire"
+  "fireSoundTwo":"arc_dusk_spinal"
 }

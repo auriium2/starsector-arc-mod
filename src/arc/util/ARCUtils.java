@@ -1,6 +1,5 @@
 package arc.util;
 
-import arc.Index;
 import arc.StopgapUtils;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
@@ -10,16 +9,55 @@ import org.dark.shaders.distortion.WaveDistortion;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
-import org.lazywizard.lazylib.combat.AIUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class ARCUtils {
 
+
+    public static void spawnGarbage(final ShipAPI shipAPI, final Vector2f locale, final Vector2f direction, String weapon) {
+
+
+
+        final DamagingProjectileAPI missileAPI = (DamagingProjectileAPI)Global.getCombatEngine().spawnProjectile(
+                shipAPI,
+                null,
+                weapon,
+                locale,
+                VectorUtils.getFacing(direction) + ((float)Math.random() * 5 - (float)Math.random() * 5 * 0.5f),
+                (Vector2f) direction.scale(MathUtils.getRandomNumberInRange(1f,1.5f))
+        );
+        if (shipAPI != null) {
+            Global.getCombatEngine().applyDamageModifiersToSpawnedProjectileWithNullWeapon(shipAPI, WeaponAPI.WeaponType.MISSILE, false, missileAPI.getDamage());
+        }
+    }
+
+    public static float[] shine(float value) {
+        float adjustedValue = value % 0.75f; // Adjust value to cycle every 0.5 increment
+
+        float[] rgb = new float[3];
+
+        // Red
+        rgb[0] = (float) Math.sin(adjustedValue * Math.PI * 2); // Full cycle every 0.5 increment
+        rgb[0] = Math.max(0, rgb[0]); // Ensure it's not negative
+        rgb[0] = Math.min(1, rgb[0]); // Ensure it's not greater than 1
+
+        // Green
+        rgb[1] = (float) Math.sin((adjustedValue + 0.5) * Math.PI * 2); // Full cycle every 0.5 increment with phase shift
+        rgb[1] = Math.max(0, rgb[1]); // Ensure it's not negative
+        rgb[1] = Math.min(1, rgb[1]); // Ensure it's not greater than 1
+
+        // Blue
+        rgb[2] = (float) Math.sin((adjustedValue + 0.25) * Math.PI * 2); // Full cycle every 0.5 increment with phase shift
+        rgb[2] = Math.max(0, rgb[2]); // Ensure it's not negative
+        rgb[2] = Math.min(1, rgb[2]); // Ensure it's not greater than 1
+
+        return rgb;
+    }
 
     public static void spawnMine(final ShipAPI shipAPI, final Vector2f vector2f, String weapon) {
         final MissileAPI missileAPI = (MissileAPI)Global.getCombatEngine().spawnProjectile(shipAPI, null, weapon, vector2f, (float)Math.random() * 360.0f, null);
@@ -37,12 +75,31 @@ public class ARCUtils {
     public static float lerp(float x, float y, float alpha) {
         return (1f - alpha) * x + alpha * y;
     }
+    public static float remap(float x1, float y1, float x2, float y2, float alpha) {
+        return lerp(x2, y2, invlerp(x1, y1, alpha));
+    }
     public static float invlerp(float x, float y, float alpha) {
         return (alpha - x) / (y - alpha);
     }
-	public static float remap(float x1, float y1, float x2, float y2, float alpha) {
-		return lerp(x2, y2, invlerp(x1, y1, alpha));
-	}
+    public static float remapExponential(float x1, float y1, float x2, float y2, float alpha, float exponent) {
+        // Ensure exponent is greater than 0 to avoid invalid calculations
+        if (exponent <= 0) {
+            throw new IllegalArgumentException("Exponent must be greater than 0");
+        }
+        // Calculate the normalized position (t) between x1 and y1
+        float t = invlerp(x1, y1, alpha);
+        // Apply exponential transformation to t
+        float expT = (float) Math.pow(t, exponent);
+        // Interpolate between x2 and y2 using the exponential factor
+        float result = x2 + (y2 - x2) * expT;
+        // Clamp the result to ensure it stays within x2 and y2 bounds
+        if (x2 < y2) {
+            return Math.max(x2, Math.min(result, y2));
+        } else {
+            return Math.max(y2, Math.min(result, x2));
+        }
+    }
+
 	public static float clamp(float min, float max, float value) {
 		return value < min ? min : Math.min(value, max);
 	}
@@ -232,7 +289,7 @@ public class ARCUtils {
     //optimize this shits (vectorize and cache)
     //could do some quadtree stuff lol
 
-    public static float armorDamagePossible(ShipAPI ship, float threshhold, float radiusToCheck, float durationToCheck, float multiplyAllDamageBy) {
+    public static float armorDamagePossible(ShipAPI ship, float radiusToCheck, float durationToCheck, float multiplyAllDamageBy) {
 
         float armorRatingForCalculation = ship.getArmorGrid().getArmorRating();
         float totalDamage = 0f;
@@ -244,9 +301,44 @@ public class ARCUtils {
 
             //guided missiles may always hit, TODO change this to ignore near misses or use partial derivatives
             if (proj instanceof MissileAPI && ((MissileAPI)proj).isGuided()) {
-                totalDamage = totalDamage + calculateDamageToArmor(proj.getDamage(), armorRatingForCalculation, multiplyAllDamageBy);
+
+
+                MissileAPI guided = (MissileAPI) proj;
+                Vector2f testPoint = ship.getLocation();
+
+                // for guided, do some complex math to figure out the time it takes to hit
+                float missileTurningRadius = (float) (guided.getMaxSpeed() / (guided.getMaxTurnRate() * Math.PI / 180));
+                float missileCurrentAngle = VectorUtils.getFacing(guided.getVelocity());
+                Vector2f missileCurrentLocation = guided.getLocation();
+                float missileTargetAngle = VectorUtils.getAngle(missileCurrentLocation, testPoint);
+                float missileRotationNeeded = MathUtils.getShortestRotation(missileCurrentAngle, missileTargetAngle);
+                Vector2f missileRotationCenter = MathUtils.getPointOnCircumference(guided.getLocation(), missileTurningRadius, missileCurrentAngle + (missileRotationNeeded > 0 ? 90 : -90));
+
+                float missileRotationSeconds = 0;
+                do {
+                    missileRotationSeconds += Math.abs(missileRotationNeeded)/guided.getMaxTurnRate();
+                    missileCurrentAngle = missileTargetAngle;
+                    missileCurrentLocation = MathUtils.getPointOnCircumference(missileRotationCenter, missileTurningRadius, missileCurrentAngle + (missileRotationNeeded > 0 ? -90 : 90));
+
+                    missileTargetAngle = VectorUtils.getAngle(missileCurrentLocation, testPoint);
+                    missileRotationNeeded = MathUtils.getShortestRotation(missileCurrentAngle, missileTargetAngle);
+                } while (missileRotationSeconds < durationToCheck && Math.abs(missileRotationNeeded) > 1f);
+
+                float radius = Misc.getTargetingRadius(missileCurrentLocation, ship, false);
+                float missileStraightSeconds = (MathUtils.getDistance(missileCurrentLocation, testPoint)-radius) / guided.getMaxSpeed();
+
+                if ((missileRotationSeconds + missileStraightSeconds < durationToCheck) && (missileRotationSeconds + missileStraightSeconds < guided.getMaxFlightTime() - guided.getFlightTime())){
+
+
+
+                    totalDamage = totalDamage + calculateDamageToArmor(proj.getDamage(), armorRatingForCalculation, multiplyAllDamageBy);
+
+                }
+
                 continue;
             }
+
+
 
             Vector2f projDest = Vector2f.add(
                     (Vector2f)(new Vector2f(proj.getVelocity()).scale(durationToCheck)),
@@ -284,18 +376,16 @@ public class ARCUtils {
             for (WeaponAPI weaponAPI : enemy.getAllWeapons()) {
                 //we don't care about disabled weapons or out of range weapons
                 if (weaponAPI.isDisabled()) continue;
-                if (MathUtils.getDistance(ship.getLocation(), enemy.getLocation()) > weaponAPI.getRange()) continue;
+                if (MathUtils.getDistanceSquared(ship.getLocation(), enemy.getLocation()) > weaponAPI.getRange() * weaponAPI.getRange()) continue;
 
                 float trueAngle = VectorUtils.getAngle(enemy.getLocation(), ship.getLocation());
                 float desireAngle = weaponAPI.getCurrAngle();
 
                 //ignore guns that cannot hit us
-                if (Math.abs(trueAngle-desireAngle) > 15) continue;
+                if (Math.abs(trueAngle-desireAngle) > 7) continue;
 
                 if (weaponAPI.isBeam()) {
-                    totalDamage = totalDamage + calculateDamageToArmor(weaponAPI.getDamage(), armorRatingForCalculation, multiplyAllDamageBy);
-
-                    weaponAPI.beginSelectionFlash();
+                    totalDamage = totalDamage + calculateDamageToArmor(weaponAPI.getDamage(), armorRatingForCalculation, multiplyAllDamageBy * 0.5f);
 
                     continue;
                 }
@@ -330,12 +420,9 @@ public class ARCUtils {
 
                 //we care about beams
 
-                //we care about insta hits
-                if (weaponAPI.getProjectileSpeed() > 800) { //TODO and it can hit us right now
-                    totalDamage = totalDamage + calculateDamageToArmor(weaponAPI.getDamage(), armorRatingForCalculation, multiplyAllDamageBy);
-                    weaponAPI.beginSelectionFlash();
-
-
+                //we care about insta hits, but weigh them less
+                if (weaponAPI.getProjectileSpeed() > 1200) { //TODO and it can hit us right now
+                    totalDamage = totalDamage + calculateDamageToArmor(weaponAPI.getDamage(), armorRatingForCalculation, multiplyAllDamageBy * 0.5f);
                 }
 
             }

@@ -48,6 +48,8 @@
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER],
 	"glowColor":[232,128,35,255],
 	"animationType":"GLOW",
-	"fireSoundOne":"burst_pd_fire"
+	#"fireSoundTwo":"arc_glance_fire",
+	"fireSoundOne":"arc_glance_charge",
+	"beamEffect": "arc.weapons.glanz.GlanzBeamEffect"
 
 }

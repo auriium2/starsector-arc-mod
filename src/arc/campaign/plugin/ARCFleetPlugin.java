@@ -7,14 +7,14 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.fleets.DefaultFleetInflaterParams;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.plugins.CreateFleetPlugin;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 
-import java.util.*;
+import java.util.List;
+import java.util.Random;
 
 import static com.fs.starfarer.api.campaign.FactionAPI.ShipPickMode.PRIORITY_THEN_ALL;
 import static com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3.*;

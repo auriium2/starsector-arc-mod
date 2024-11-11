@@ -1,6 +1,5 @@
 package arc.fx;
 
-import arc.fx.BaseCombatEffect;
 import com.fs.starfarer.api.combat.CombatEngineLayers;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.ViewportAPI;

@@ -4,15 +4,8 @@ import arc.util.ARCUtils;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
-import com.fs.starfarer.api.loading.DamagingExplosionSpec;
-import data.scripts.util.MagicLensFlare;
-import org.dark.shaders.distortion.DistortionShader;
-import org.dark.shaders.distortion.RippleDistortion;
-import org.dark.shaders.distortion.WaveDistortion;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
-
-import java.awt.*;
 
 public class DuskOnHit implements OnHitEffectPlugin {
     @Override
@@ -22,7 +15,7 @@ public class DuskOnHit implements OnHitEffectPlugin {
         //Yes, i am aware that this will cause the dusk to do 1 + the multiplied amount. No, i do not care.
         float multiplier = 1;
         if (target instanceof ShipAPI) {
-            multiplier = ARCUtils.decideBasedOnHullSize((ShipAPI)target, 1f, 1f, 1.5f, 2f, 2.5f);
+            multiplier = ARCUtils.decideBasedOnHullSize((ShipAPI)target, 1f, 1f, 1.3f, 1.5f, 1.7f);
         }
 
         if (!shieldHit) {

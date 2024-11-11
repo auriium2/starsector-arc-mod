@@ -1,9 +1,9 @@
 name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,isPhaseCloak,noVent,icon
-Whitespace Booster,arc_whitespace_grazer_micro,,,,,,,,4,1.2,0.2,0.5,0.2,0.5,FALSE,,,,,,,,TRUE,,,graphics/icons/hullsys/phase_cloak.png
+Whitespace Booster,arc_whitespace_grazer_micro,,,,,,,,4,1.2,0.2,0.5,0.2,0.5,FALSE,,,,,,,,,,,graphics/icons/hullsys/phase_cloak.png
 Whitespace Grazer,arc_whitespace_grazer,,,,,,,,3,0.06,0.4,1.6,0.4,1.2,FALSE,,TRUE,TRUE,TRUE,,,,TRUE,TRUE,,graphics/icons/hullsys/phase_cloak.png
 Whitespace Flare,arc_whitespace_flare,,,,,,,,5,0.04,0.2,0.8,0.2,0.6,FALSE,,,,,,,,TRUE,,,graphics/icons/hullsys/phase_cloak.png
 Heavy Whitespace Grazer,arc_whitespace_grazer_heavy,,,,,,,,3,0.03,0.7,3,0.7,2,,,TRUE,TRUE,TRUE,,,,TRUE,TRUE,,graphics/icons/hullsys/phase_cloak.png
-Hypershunt Overdrive,arc_overdrive,,,,,,,,,,1,5,1,12,,,TRUE,,,,,,TRUE,,TRUE,graphics/icons/hullsys/ammo_feeder.png
+Hypershunt Overdrive,arc_overdrive,,,,,,,,,,2.5,3,1,6,,,TRUE,,FALSE,FALSE,FALSE,FALSE,TRUE,,TRUE,graphics/icons/hullsys/ammo_feeder.png
 Chesed Repair Drones,arc_chesed_bay,,,,,,,,,,1,,1,,FALSE,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png
 Piercer,arc_piercer,50,,,,,,,,,0.75,,0.75,3,TRUE,,TRUE,TRUE,TRUE,,TRUE,TRUE,TRUE,,restricted,graphics/icons/hullsys/burn_drive.png,
-Aroystra Screen,arc_aroystra_screen,,,,,,0.1,,,0.08,0,0.02,0,4,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png,
+Aroystra Screen,arc_aroystra_screen,,,,,,0.1,,,0.005,0,0.02,0,4,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png,

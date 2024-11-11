@@ -141,51 +141,88 @@
   "engineSlots": [
     {
       "location": [-64.5, 8.5],
-      "length": 72,
-      "width": 12,
+      "length": 8,
+      "width": 8,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 10,
+      "style": "CUSTOM",
+      "styleId": "DiableAvionicsTrail"
     },
     {
       "location": [-64.5, -8.5],
-      "length": 72,
-      "width": 12,
-      "angle": -180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "length": 8,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "CUSTOM",
+      "styleId": "DiableAvionicsTrail"
     },
     {
       "location": [-39.5, 35],
-      "length": 39.5,
+      "length": 8,
       "width": 8,
-      "angle": 169.5,
-      "contrailSize": 8,
-      "style": "HIGH_TECH"
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "CUSTOM",
+      "styleId": "DiableAvionicsTrail"
     },
     {
       "location": [-39.5, -35],
-      "length": 39.5,
+      "length": 8,
       "width": 8,
-      "angle": -169.5,
-      "contrailSize": 8,
-      "style": "HIGH_TECH"
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "CUSTOM",
+      "styleId": "DiableAvionicsTrail"
+    },
+
+    {
+      "location": [-66.5, 8.5],
+      "length": 52,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "ARC_SUPER"
     },
     {
-      "location": [-38.5, 41.5],
-      "length": 39.5,
-      "width": 8,
-      "angle": 166.5,
-      "contrailSize": 8,
-      "style": "HIGH_TECH"
+      "location": [-66.5, -8.5],
+      "length": 52,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "ARC_SUPER"
     },
     {
-      "location": [-38.5, -41.5],
-      "length": 39.5,
-      "width": 8,
-      "angle": -166.5,
-      "contrailSize": 8,
-      "style": "HIGH_TECH"
+      "location": [-41.5, 35],
+      "length": 52,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "ARC_SUPER"
+    },
+    {
+      "location": [-41.5, -35],
+      "length": 52,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "ARC_SUPER"
+    },
+    {
+      "location": [-40.5, 41.5],
+      "length": 52,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "ARC_SUPER"
+    },
+    {
+      "location": [-40.5, -41.5],
+      "length": 52,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "ARC_SUPER"
     }
   ],
   "bounds": [

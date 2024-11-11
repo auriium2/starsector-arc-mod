@@ -4,19 +4,18 @@
 
 package arc.weapons.sunspear;
 
-import com.fs.starfarer.api.combat.*;
-
-import java.util.List;
-import org.lazywizard.lazylib.FastTrig;
-import org.lazywizard.lazylib.VectorUtils;
-
-import java.util.Collections;
-import org.lazywizard.lazylib.CollectionUtils;
-import org.lazywizard.lazylib.MathUtils;
 import com.fs.starfarer.api.Global;
-import java.util.ArrayList;
+import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.util.IntervalUtil;
+import org.lazywizard.lazylib.CollectionUtils;
+import org.lazywizard.lazylib.FastTrig;
+import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class SunspearAutofireAIPlugin implements AutofireAIPlugin

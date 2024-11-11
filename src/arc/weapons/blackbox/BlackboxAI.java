@@ -6,24 +6,15 @@ package arc.weapons.blackbox;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
-//import com.fs.starfarer.api.combat.WeaponAPI;
-import com.fs.starfarer.api.util.IntervalUtil;
-import com.fs.starfarer.api.util.WeightedRandomPicker;
 import data.scripts.util.MagicLensFlare;
 import data.scripts.util.MagicRender;
-import data.scripts.util.MagicTargeting;
-import java.awt.Color;
-import java.util.Iterator;
-import java.util.List;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
 import org.lazywizard.lazylib.FastTrig;
-import org.lwjgl.util.vector.Vector2f;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
+import org.lwjgl.util.vector.Vector2f;
+
+import java.awt.*;
 
 public class BlackboxAI implements MissileAIPlugin, GuidedMissileAI {
 

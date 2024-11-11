@@ -1,10 +1,8 @@
 package arc.weapons.blackbox;
 
-import arc.Index;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
-import data.scripts.util.MagicRender;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.FastTrig;
 import org.lazywizard.lazylib.MathUtils;
@@ -290,8 +288,8 @@ public class BlackboxStageTwoAI implements MissileAIPlugin, GuidedMissileAI {
 
             DamagingExplosionSpec boom = new DamagingExplosionSpec(
                     0.2f,
-                    radius,
-                    coreRadius,
+                    radius / 2,
+                    coreRadius / 2,
                     damage,
                     damage,
                     CollisionClass.PROJECTILE_NO_FF,

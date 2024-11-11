@@ -11,8 +11,6 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.procgen.Constellation;
-import com.fs.starfarer.api.impl.campaign.procgen.themes.SectorThemeGenerator;
 import org.dark.shaders.util.ShaderLib;
 
 import java.util.List;
@@ -70,24 +68,29 @@ public class ARCPlugin extends BaseModPlugin {
         if (ship.getHullSpec().getHullId().startsWith("arc_")) {
 
             ShipAIConfig config = new ShipAIConfig();
-            config.alwaysStrafeOffensively = true;
             config.personalityOverride = "aggressive";
+            config.turnToFaceWithUndamagedArmor = false;
+
+
+            if (ship.getHullSpec().getHullId().contentEquals("malkuth")) {
+                config.personalityOverride = "reckless";
+                config.backingOffWhileNotVentingAllowed = false;
+            }
+
+            if (ship.getHullSpec().getHullId().contentEquals("rdg")) {
+                config.personalityOverride = "reckless";
+                config.backingOffWhileNotVentingAllowed = false;
+            }
 
             if (ship.getHullSpec().getHullId().contentEquals("arc_yesod")) {
-                config.alwaysStrafeOffensively = false;
+                config.backingOffWhileNotVentingAllowed = true;
                 config.personalityOverride = "steady";
             }
 
 
             if (ship.getHullSpec().getHullId().contentEquals("arc_chokmah")) {
-                config.alwaysStrafeOffensively = false;
                 config.personalityOverride = "cautious";
             }
-
-            if (ship.getHullSpec().getHullId().contentEquals("arc_mura")) {
-                config.personalityOverride = "steady";
-            }
-
 
             ShipAIPlugin ai = Global.getSettings().createDefaultShipAI(ship, config);
 

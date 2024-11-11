@@ -4,7 +4,7 @@
 	"author":"superyuuki, Raycrasher",
 	"version":"0.2.6",
 	"description":"superyuuki (original by Raycrasher)",
-	"gameVersion": "0.96a-RC8",
+	"gameVersion": "0.97a-RC11",
 	"jars": [
 		"./jars/starsector-arc-mod.jar"
 	],
@@ -13,6 +13,18 @@
 		{
 			"id": "MagicLib",
 			"name": "MagicLib"
+		},
+		{
+			"id": "lw_lazylib",
+			"name": "LazyLib"
+		},
+		{
+			"id": "shaderLib",
+			"name": "GraphicsLib"
+		},
+		{
+			"id": "diableavionics",
+			"name": "Diable Avionics"
 		}
 	]
 }

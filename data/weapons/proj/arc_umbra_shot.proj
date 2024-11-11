@@ -4,16 +4,16 @@
 	"spawnType":"BALLISTIC_AS_BEAM",
 	"collisionClass":"RAY",
 	"collisionClassByFighter":"RAY_FIGHTER",
-	"hitGlowRadius":15,
-	"length":60.0,
-	"width":6.0,
-	"fadeTime":0.05,
-	"fringeColor":[100,120,255,175],
-	"coreColor":[200,150,200,200],
-	"glowColor":[100,180,255,200],
-	"onHitEffect": "arc.weapons.umbra.UmbraOnHit",
-	"glowRadius":0,
-	"textureType":"ROUGH",  # only needed for BEAM
-	"textureScrollSpeed":0,
-	"pixelsPerTexel":0.5
+	"length":125.0,
+	"hitGlowRadius":10,
+	"width":6,
+	"fadeTime":0.50,
+	"fringeColor":[45,40,180,125],
+	"coreColor":[76,93,199,215],
+	"glowRadius":15,
+	"glowColor":[50,10,130,120],
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":20.0,
+	"bulletSprite":"graphics/arc/missiles/arc_frag.png",
+	"onHitEffect": "arc.weapons.umbra.UmbraOnHit"
 }

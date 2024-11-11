@@ -1,41 +1,21 @@
 {
 	"id":"arc_whitespace_grazer_micro",
-	"type":"PHASE_CLOAK",
-	"aiType":"PHASE_CLOAK",
+	"type":"STAT_MOD",
+	"aiType":"CUSTOM",
+	"aiScript":"arc.shipsystems.boost.BoostAI",
 
-	"statsScript":"arc.shipsystems.whitespace.WhitespaceBoosterStats",
+	"statsScript":"arc.shipsystems.boost.Boost",
 	"runScriptWhilePaused":true, # only for the player's ship
-	"runScriptWhileIdle":true,  # this means unapply() never gets called
-	"blockActionsWhileChargingDown":false,
-	
-	"phaseHighlight":"_glow1",
-	"phaseDiffuse":"_glow2",
-	
-	
-	"effectColor1":[255,175,255,255],
-	"effectColor2":[255,0,255,150],
-	
-	"clampTurnRateAfter":true,
-	"clampMaxSpeedAfter":true,
-	
-	"engineGlowColor":[99,160,149,160],
-    "engineGlowContrailColor":[60,180,155,50],
-    "engineGlowLengthMult": 0.1,
-    "engineGlowWidthMult":0.5,
-    "engineGlowGlowMult": 8,
-	
-	"soundFilterType":"LOWPASS",
-	"soundFilterGain":0.8,
-	"soundFilterGainHF":0.25,
 
-	"shipAlpha":1, # handled in stats script, don't change
+	"engineGlowLengthMult":1.5,
 
-	"useSound":"phase_cloak_activate",
-	"deactivateSound":"phase_cloak_deactivate",
-	"outOfUsesSound":"phase_cloak_collision",
+	"flameoutOnImpactChance":0,
 
+	"outOfUsesSound":"engine_disabled",
 
 	"aiHints":{
-            "averageSpeedMult":2,
-    }
+		"activeSpeedIncrease":0,
+		"burstMovementPotential":200,
+		"averageSpeedIncrease":25
+	}
 }

@@ -2,7 +2,9 @@ package arc.weapons;
 
 import arc.util.ARCUtils;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
@@ -53,9 +55,9 @@ public class ArcChargeupWeaponEffect extends ArcBaseEveryFrameWeaponEffect{
         float particleSizeCoef = ARCUtils.decideBasedOnHullSize(
                 ship,
                 0.2f,
-                1f,
-                1f,
-                1f,
+                0.7f,
+                0.7f,
+                0.85f,
                 1f
         );
 

@@ -1,7 +1,7 @@
 package arc.hullmod;
 
-import arc.util.ARCUtils;
 import arc.Index;
+import arc.util.ARCUtils;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 

@@ -118,7 +118,7 @@
     "shipQuality":5,
     "numShips":1,
 
-    "shipSize":3,
+    "shipSize":4,
     "aggression":5,
 
     "combatFreighterProbability":0.25,   #diable decision

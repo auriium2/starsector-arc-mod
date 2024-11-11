@@ -1,14 +1,8 @@
 package arc.weapons.umbra;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
-
-import com.fs.starfarer.api.impl.combat.DisintegratorEffect;
-import com.fs.starfarer.api.util.Misc;
 import org.lwjgl.util.vector.Vector2f;
-
-import java.awt.*;
 
 public class UmbraOnHit implements OnHitEffectPlugin {
 

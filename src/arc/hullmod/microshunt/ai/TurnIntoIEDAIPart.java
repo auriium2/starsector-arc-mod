@@ -146,6 +146,8 @@ public class TurnIntoIEDAIPart implements IHullmodPart<ARCData> {
             //ai
             shipAPI.giveCommand(ShipCommand.ACCELERATE, null, 0);
             shipAPI.blockCommandForOneFrame(ShipCommand.DECELERATE);
+            shipAPI.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS);
+
             shipAPI.setDefenseDisabled(true);
             //shipAPI.getTravelDrive().forceState(ShipSystemAPI.SystemState.ACTIVE, 1);
 
@@ -164,7 +166,7 @@ public class TurnIntoIEDAIPart implements IHullmodPart<ARCData> {
 
             if (guidedTarget == null) {
                 Vector2f projection = new Vector2f(targetVelocity);
-                float scalar = distance / 110f;
+                float scalar = distance / 50f;
                 projection.scale(scalar);
                 guidedTarget = Vector2f.add(targetLocation, projection, null);
             }

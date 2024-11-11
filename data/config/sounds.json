@@ -75,29 +75,35 @@
 	"arc_dusk":
 	[
 
-		{"file":"sounds/ARC/energy/arc_dusk1.wav","pitch":1.0,"volume":0.95},
-		{"file":"sounds/ARC/energy/arc_dusk1.wav","pitch":0.9,"volume":0.98},
-		{"file":"sounds/ARC/energy/arc_dusk1.wav","pitch":1.1,"volume":0.8},
-		{"file":"sounds/ARC/energy/arc_dusk1.wav","pitch":1.05,"volume":0.85}
+		{"file":"sounds/ARC/energy/arc_dusk.ogg","pitch":1.0,"volume":1.4},
+		{"file":"sounds/ARC/energy/arc_dusk.ogg","pitch":0.9,"volume":1.4},
+		{"file":"sounds/ARC/energy/arc_dusk2.ogg","pitch":1.1,"volume":1.4},
+		{"file":"sounds/ARC/energy/arc_dusk2.ogg","pitch":1.05,"volume":1.4}
 
 	],
 	"arc_dusk_spinal":
 	[
 
-		{"file":"sounds/ARC/energy/arc_dusk_spinal.wav","pitch":1,"volume":1},
-		{"file":"sounds/ARC/energy/arc_dusk_spinal.wav","pitch":0.75,"volume":1.2},
-		{"file":"sounds/ARC/energy/arc_dusk_spinal.wav","pitch":1.25,"volume":0.8}
+		{"file":"sounds/ARC/ballistic/arc_dusk_spinal.ogg","pitch":0.63,"volume":1.8},
+		{"file":"sounds/ARC/ballistic/arc_dusk_spinal.ogg","pitch":0.6,"volume":1.8},
+		{"file":"sounds/ARC/ballistic/arc_dusk_spinal.ogg","pitch":1.57,"volume":1.8}
 
 
+
+	],
+	"arc_dusk_spinal_charge":
+	[
+
+		{"file":"sounds/ARC/ballistic/arc_dusk_spinal_charge.wav","pitch":0.7,"volume":0.7}
 
 	],
 	"arc_dusk_charge":
 	[
 
-		{"file":"sounds/ARC/energy/arc_dusk_charge.wav","pitch":0.6,"volume":0.25},
-		{"file":"sounds/ARC/energy/arc_dusk_charge.wav","pitch":0.7,"volume":0.25},
-		{"file":"sounds/ARC/energy/arc_dusk_charge.wav","pitch":0.5,"volume":0.25},
-		{"file":"sounds/ARC/energy/arc_dusk_charge.wav","pitch":0.8,"volume":0.25}
+		{"file":"sounds/ARC/energy/arc_dusk_charge.ogg","pitch":0.6,"volume":0.5},
+		{"file":"sounds/ARC/energy/arc_dusk_charge.ogg","pitch":0.7,"volume":0.5},
+		{"file":"sounds/ARC/energy/arc_dusk_charge.ogg","pitch":0.5,"volume":0.5},
+		{"file":"sounds/ARC/energy/arc_dusk_charge.ogg","pitch":0.8,"volume":0.5}
 
 
 	],
@@ -111,12 +117,7 @@
 
 
 	],
-	"arc_dusk_charge_spinal":
-	[
 
-		{"file":"sounds/ARC/energy/arc_dusk_charge.wav","pitch":0.3,"volume":0.7}
-
-	],
 	"arc_dusk_hit":
 	[
 
@@ -177,16 +178,6 @@
 	"arc_alphastar_explosion_little":
 	[
 		{"file":"sounds/ARC/missiles/arc_alphastar_explode_little.wav","pitch":1,"volume":1}
-
-	],
-	"arc_yesod_spinal_charge":
-	[
-		{"file":"sounds/ARC/ballistic/arc_yesod_spinal_charge.wav","pitch":1,"volume":1}
-
-	],
-	"arc_yesod_spinal_fire":
-	[
-		{"file":"sounds/ARC/ballistic/arc_yesod_spinal_fire.wav","pitch":1,"volume":1}
 
 	],
 	"arc_busterstar_firing":

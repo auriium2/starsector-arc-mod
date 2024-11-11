@@ -1,8 +1,12 @@
 package arc.weapons.absolution;
 
+import arc.plugin.RunnableQueuePlugin;
 import arc.weapons.ArcBaseEveryFrameWeaponEffect;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.DamageType;
+import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
@@ -27,13 +31,18 @@ public class AbsolutionEveryFrameEffect extends ArcBaseEveryFrameWeaponEffect {
 
         if (weapon.getChargeLevel() > 0 && !weapon.isDisabled() && weapon.getCooldownRemaining() <= 0) {
 
-            Global.getSoundPlayer().playLoop("arc_yesod_spinal_charge", weapon, 1f, 1f, weapon.getLocation(), new Vector2f(), 0, 0.035f);
+            Global.getSoundPlayer().playLoop("arc_dusk_spinal_charge", weapon, 1f, 1f, weapon.getLocation(), new Vector2f(), 0, 0.035f);
 
         }
 
-        if (!util.intervalElapsed()) return;
-        if (chargeLevel < 0.1f || weapon.getCooldownRemaining() > 0) return;
+        //shitcode
+        if (chargeLevel < 0.1f || weapon.getCooldownRemaining() > 0) {
+            RunnableQueuePlugin.shipsBeaming.remove(ship);
 
+            return;
+        } else {
+
+        }
         Vector2f goBackAllTheWay = new Vector2f(-180, 0);
         VectorUtils.rotate(goBackAllTheWay, facing, goBackAllTheWay);
 
@@ -45,6 +54,12 @@ public class AbsolutionEveryFrameEffect extends ArcBaseEveryFrameWeaponEffect {
 
         Vector2f.add(shotLocation, goBackAllTheWay, goBackAllTheWay);
         Vector2f.add(shotLocation, goBackThisMuch, goBackThisMuch);
+
+        if (!util.intervalElapsed()) return;
+
+
+
+
 
         engine.spawnEmpArc(
                 ship,

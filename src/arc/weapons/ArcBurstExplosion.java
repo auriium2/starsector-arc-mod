@@ -1,7 +1,9 @@
 package arc.weapons;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.DamagingProjectileAPI;
+import com.fs.starfarer.api.combat.ProximityExplosionEffect;
 import com.fs.starfarer.api.impl.combat.NegativeExplosionVisual;
 import org.lwjgl.util.vector.Vector2f;
 

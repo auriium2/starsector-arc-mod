@@ -29,7 +29,6 @@
     "automated",
     "arc_aux",
     "missleracks",
-    "missile_autoloader"
   ],
   "builtInWeapons": {
     "WS0002": "hammer",

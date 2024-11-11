@@ -14,6 +14,15 @@
 	},
 
 	"graphics": {
+		"shine": {
+			"yesod": "graphics/arc/ships/yesod/arc_yesod_shine.png",
+			"daat": "graphics/arc/ships/daat/daat_shine.png",
+			"gevurah": "graphics/arc/ships/gevurah/gevurah_shine.png",
+			"malkuth": "graphics/arc/ships/malkuth/malkuth_shine.png"
+
+
+
+		},
 		"fx": {
 			"trail_clean":"graphics/arc/fx/trail_clean.png",
 			"trail_ring":"graphics/arc/fx/trail_ring.png",

@@ -10,8 +10,8 @@ import org.lazywizard.lazylib.combat.DefenseUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 //STARFICZ CREDIT
 public class AIUtil {

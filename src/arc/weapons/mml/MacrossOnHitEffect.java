@@ -1,27 +1,21 @@
 package arc.weapons.mml;
 
 import arc.StopgapUtils;
+import arc.plugin.RunnableQueuePlugin;
 import arc.util.ARCUtils;
-import arc.weapons.buster.BusterOnHit;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 import com.fs.starfarer.api.impl.combat.DisintegratorEffect;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
 import com.fs.starfarer.api.util.Misc;
-import data.scripts.util.MagicLensFlare;
-import org.dark.shaders.distortion.DistortionShader;
 import org.dark.shaders.distortion.RippleDistortion;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
-import org.lazywizard.lazylib.combat.AIUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.Color;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.awt.*;
 
 public class MacrossOnHitEffect implements OnHitEffectPlugin {
 
@@ -61,13 +55,17 @@ public class MacrossOnHitEffect implements OnHitEffectPlugin {
         if (projectile.isExpired() || !Global.getCombatEngine().isInPlay(projectile)) return;
 
         final RippleDistortion ripple = new RippleDistortion(explosionPoint, new Vector2f());
-        ripple.setSize(80f * scale);
-        ripple.setIntensity(30.0f);
-        ripple.setFrameRate(60.0f);
+        ripple.setSize(150f * scale);
+        ripple.setIntensity(30f);
+        ripple.setFrameRate(60f);
         ripple.fadeInSize(0.3f * scale);
         ripple.fadeOutIntensity(0.3f);
-        DistortionShader.addDistortion(ripple);
-        MagicLensFlare.createSharpFlare(
+
+        Global.getCombatEngine().spawnExplosion(explosionPoint, new Vector2f(),
+                new Color(131, 108, 206,180), (((float) Math.random() * 50f) + 100f) * Math.max(0.1f, 1f), 0.3f);
+
+        //DistortionShader.addDistortion(ripple);
+        /*MagicLensFlare.createSharpFlare(
                 Global.getCombatEngine(),
                 projectile.getSource(),
                 explosionPoint,
@@ -76,7 +74,7 @@ public class MacrossOnHitEffect implements OnHitEffectPlugin {
                 0,
                 Color.PINK,
                 Color.RED
-        );
+        );*/
 
         DamagingExplosionSpec explosionSpec = new DamagingExplosionSpec(
                 2f,
@@ -99,16 +97,40 @@ public class MacrossOnHitEffect implements OnHitEffectPlugin {
         explosionSpec.setUseDetailedExplosion(false);
 
         StopgapUtils.getShipsWithinRange(explosionPoint, 120f).forEachRemaining(ship -> {
+            if (ship.getOwner() != projectile.getOwner()) {
+
+                boolean shatterArmor = true;
+                if (ship.isPhased()) shatterArmor = false;
+                if (ship.getShield() != null
+                        && ship.getShield().isOn()
+                        && MathUtils.isWithinRange(explosionPoint, ship.getShieldCenterEvenIfNoShield(), ship.getShieldRadiusEvenIfNoShield() )
+                        && ship.getShield().isWithinArc(explosionPoint)) {
+
+                    shatterArmor = false;
+
+                }
+
+                if (shatterArmor) {
+
+                    for (int i = 0; i < MathUtils.getRandomNumberInRange(1, 4); i++) {
+                        RunnableQueuePlugin.queueTask(() -> {
+                            Vector2f armorTobreak = getNearestPointOnCollisionRadius(
+                                    new Vector2f(
+                                            (float) ((float)explosionPoint.x + Math.random() * 20f),
+                                            (float) ((float)explosionPoint.y + Math.random() * 20f)
+                                    ), ship);
+
+                            Global.getCombatEngine().spawnExplosion(armorTobreak, ship.getVelocity(),
+                                    new Color(151, 126, 255,180), (((float) Math.random() * 40f) + 5f) * Math.max(0.1f, 0.5f), 0.3f);
 
 
-            if (ship.getShield() != null
-                    && ship.getShield().isOn()
-                    && MathUtils.isWithinRange(explosionPoint, ship.getShieldCenterEvenIfNoShield(), ship.getShieldRadiusEvenIfNoShield() )
-                    && ship.getShield().isWithinArc(explosionPoint)) {
+                            dealArmorDamage(projectile, ship, armorTobreak, 7);
+                        }, i * 5 + 2);
+                    }
+                }
 
-                Vector2f armorTobreak = getNearestPointOnCollisionRadius(explosionPoint, ship);
-                dealArmorDamage(projectile, ship, armorTobreak, 20);
             }
+
 
 
         });
@@ -174,7 +196,7 @@ public class MacrossOnHitEffect implements OnHitEffectPlugin {
 
         if (damageDealt > 0) {
             if (Misc.shouldShowDamageFloaty(projectile.getSource(), target)) {
-                engine.addFloatingDamageText(point, damageDealt, Misc.FLOATY_ARMOR_DAMAGE_COLOR, target, projectile.getSource());
+                engine.addFloatingDamageText(point, damageDealt, new Color(139, 103, 185), target, projectile.getSource());
             }
             target.syncWithArmorGridState();
         }

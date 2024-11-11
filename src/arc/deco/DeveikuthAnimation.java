@@ -2,7 +2,6 @@ package arc.deco;
 
 import arc.weapons.ArcChargeupWeaponEffect;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
-import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 
@@ -20,6 +19,8 @@ public class DeveikuthAnimation extends ArcChargeupWeaponEffect {
 
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
+
+
         super.advance(amount, engine, weapon);
 
         if(engine.isPaused() || hidden || weapon.getShip().getOriginalOwner()==-1){return;}

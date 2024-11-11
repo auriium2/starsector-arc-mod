@@ -1,7 +1,6 @@
 package arc.weapons.buster;
 
 import arc.StopgapUtils;
-import arc.weapons.mml.MacrossOnHitEffect;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
@@ -16,7 +15,6 @@ import org.dark.shaders.distortion.WaveDistortion;
 import org.dark.shaders.light.LightShader;
 import org.dark.shaders.light.StandardLight;
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
@@ -207,7 +205,7 @@ public class BusterOnHit implements OnHitEffectPlugin {
 
 
             });
-        } else  {
+        }
             DamagingExplosionSpec spec = new DamagingExplosionSpec(
                     0.4f,
                     (radiusDamage + 100) * 1.5f,
@@ -227,9 +225,9 @@ public class BusterOnHit implements OnHitEffectPlugin {
             spec.setDamageType(DamageType.ENERGY);
             spec.setShowGraphic(false);
 
-            Global.getCombatEngine().spawnDamagingExplosion(spec, source, loc, false);
-        }
 
+
+            Global.getCombatEngine().spawnDamagingExplosion(spec, source, loc, false);
 
 
 

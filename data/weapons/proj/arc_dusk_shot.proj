@@ -5,7 +5,7 @@
   "specClass":"projectile",
   "spawnType":"BALLISTIC",
   "collisionClass":"PROJECTILE_FF",
-  "collisionClassByFighter":"PROJECTILE_FIGHTER",
+  "collisionClassByFighter":"PROJECTILE_NO_FF",
   "length":0,
   "hitGlowRadius":50,
   "width":0,
@@ -23,7 +23,7 @@
   "textureScrollSpeed":5,
   "pixelsPerTexel":1.0,
   "passThroughMissiles":true,
-  "passThroughFighters":true,
+  "passThroughFighters":false,
 }
 
 

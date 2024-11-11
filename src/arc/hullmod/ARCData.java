@@ -27,7 +27,7 @@ public class ARCData {
     public WaveDistortion iedPrep = null;
     public CombatEntityAPI currentTarget = null;
 
-    public static final float JIHAD_TICKS = 2.2f;
+    public static final float JIHAD_TICKS = 2.4f;
 
 
 }

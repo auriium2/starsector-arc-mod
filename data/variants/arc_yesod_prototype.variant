@@ -21,10 +21,10 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "diableavionics_thunderboltsmall",
-        "WS0003": "diableavionics_thunderboltsmall",
-        "WS0004": "diableavionics_thunderboltsmall",
-        "WS0005": "diableavionics_thunderboltsmall"
+        "WS0002": "diableavionics_recson",
+        "WS0003": "diableavionics_recson",
+        "WS0004": "diableavionics_recson",
+        "WS0005": "diableavionics_recson"
       }
     },
     {

@@ -5,7 +5,6 @@ import arc.util.ARCUtils;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.input.InputEventAPI;
-import com.fs.starfarer.api.loading.DamagingExplosionSpec;
 import com.fs.starfarer.api.loading.ProjectileSpecAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.dark.shaders.distortion.DistortionShader;
@@ -17,8 +16,8 @@ import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 public class PenetrationPlugin implements EveryFrameCombatPlugin {
 
@@ -52,6 +51,7 @@ public class PenetrationPlugin implements EveryFrameCombatPlugin {
             //THANKS VIC
             targets.forEachRemaining(ship -> {
                 if (ship.equals(proj.getSource())) return;
+                if (ship.getOwner() == proj.getSource().getOwner()) return;
 
                 List<ShipAPI> alreadyHit = (List<ShipAPI>) proj.getCustomData().get("arc_damaged_already");
                 if (alreadyHit == null) alreadyHit = new ArrayList<>();
