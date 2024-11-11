@@ -124,7 +124,7 @@ public class MacrossOnHitEffect implements OnHitEffectPlugin {
                                     new Color(151, 126, 255,180), (((float) Math.random() * 40f) + 5f) * Math.max(0.1f, 0.5f), 0.3f);
 
 
-                            dealArmorDamage(projectile, ship, armorTobreak, 7);
+                            dealArmorDamage(projectile, ship, armorTobreak, 20);
                         }, i * 5 + 2);
                     }
                 }

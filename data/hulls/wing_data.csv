@@ -1,6 +1,6 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
 arc_deveikuth_wing,arc_deveikuth_standard,"wanzer, fighter4, fighter, high, rd_no_extra_craft, arc_bp,  auto_fighter, restricted",3,0.05,30,35,BOX,4000,650,,1,FIGHTER,Assault Trooper,28,15000,,,,,,,,,,,,,1
-arc_teshuvah_wing,arc_teshuvah_standard,"wanzer, interceptor3, interceptor, high, rd_no_extra_craft, arc_bp,  auto_fighter, restricted",3,0.05,15,20,V,4000,500,,1,INTERCEPTOR,Air Superiority Trooper,18,15000,,,,,,,,,,,,,4
+arc_teshuvah_wing,arc_teshuvah_standard,"wanzer, interceptor3, interceptor, high, rd_no_extra_craft, arc_bp,  auto_fighter, restricted",3,0.05,15,20,V,4000,400,,1,INTERCEPTOR,Air Superiority Trooper,18,15000,,,,,,,,,,,,,4
 arc_mura_wing,arc_mura_standard,"wanzer, bomber3, bomber, high, arc_bp, rd_no_extra_craft,  auto_fighter, restricted",3,0.05,10,22,V,4000,1400,,2,BOMBER,Drill Trooper,22,15000,,,,,,,,,,,,,3
 arc_aroystra_wing,arc_aroystra_standard,"interceptor3, interceptor, rd_no_extra_craft, arc_bp,  auto_fighter, restricted",2,0.05,5,12,V,4000,200,,5,FIGHTER,Beam Funnel,5,15000,,,,,,,,,,,,,4
 arc_aroystra_single_wing,arc_aroystra_standard,"interceptor3, interceptor, rd_no_extra_craft, arc_bp,  auto_fighter, restricted",2,0.05,1,12,V,4000,200,,1,FIGHTER,Beam Funnel,5,15000,,,,,,,,,,,,,4
